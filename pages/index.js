@@ -64,24 +64,12 @@ export default function Home() {
               break
             }
 
-            // case 'b': {
-            //   event.preventDefault()
-            //   Transforms.setNodes(
-            //     editor,
-            //     { bold: true },
-            //     { match: n => Text.isText(n), split: true }
-            //   )
-            //   break
-            // }
-            case '`': {
+            case 'b': {
               event.preventDefault()
-              const [match] = Editor.nodes(editor, {
-                match: n => n.type === 'code',
-              })
               Transforms.setNodes(
                 editor,
-                { type: match ? null : 'code' },
-                { match: n => Editor.isBlock(editor, n) }
+                { bold: true },
+                { match: n => Text.isText(n), split: true }
               )
               break
             }
