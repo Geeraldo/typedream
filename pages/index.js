@@ -113,7 +113,10 @@ export default function Home() {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <main>
-      <Slate  editor={editor} value={initialValue}>
+        <div>
+          <p className="text-3xl font-bold underline">teststtsst tailwind</p>
+        </div>
+      <Slate editor={editor} value={initialValue}>
       <div>
         <button
           onMouseDown={event => {
