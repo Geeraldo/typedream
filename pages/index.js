@@ -2,7 +2,6 @@ import Head from 'next/head'
 import { useState, useCallback } from 'react'
 import { createEditor, Transforms, Editor, Text } from 'slate'
 import { Slate, Editable, withReact } from 'slate-react'
-import style from '../styles/TextEditor.module.css'
 
 export default function Home() {
   const CustomEditor = {
@@ -114,7 +113,7 @@ export default function Home() {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <main>
-      <Slate className={style.home} editor={editor} value={initialValue}>
+      <Slate  editor={editor} value={initialValue}>
       <div>
         <button
           onMouseDown={event => {
