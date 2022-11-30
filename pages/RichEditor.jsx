@@ -3,6 +3,7 @@ import { useState, useCallback } from 'react'
 import { createEditor, Transforms, Editor, Text } from 'slate'
 import { Slate, Editable, withReact } from 'slate-react'
 import { FiBold, FiUnderline, FiItalic, FiCode } from 'react-icons/fi'
+import { AiFillMacCommand } from "react-icons/ai";
 import Toolbar from './Toolbar'
 
 export default function RichEditor() {
