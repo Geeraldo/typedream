@@ -2,6 +2,7 @@ import Head from 'next/head'
 import { useState, useCallback } from 'react'
 import { createEditor, Transforms, Editor, Text } from 'slate'
 import { Slate, Editable, withReact } from 'slate-react'
+import { FiBold, FiUnderline, FiItalic, FiCode } from 'react-icons/fi'
 
 export default function Home() {
   const CustomEditor = {
@@ -79,7 +80,11 @@ export default function Home() {
   const initialValue = [
     {
       type: 'paragraph',
-      children: [{ text: 'A line of text in a paragraph.' }],
+      children: [
+        { text: 
+          'lorem Ipsum is simply dummy text of the printing and typesetting industry.' 
+        }
+      ],
     },
   ]
   const [editor] = useState(() => withReact(createEditor()))
@@ -102,7 +107,6 @@ export default function Home() {
     return <p {...props.attributes}>{props.children}</p>
   }
   const renderLeaf = useCallback(props => {
-    console.log(props)
     return <Leaf {...props} />
   }, [])
   return (
@@ -113,45 +117,54 @@ export default function Home() {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <main>
-        <div>
-          <p className="text-3xl font-bold underline">teststtsst tailwind</p>
-        </div>
-      <Slate editor={editor} value={initialValue}>
-      <div>
-        <button
+        <div className="flex items-center justify-center mt-5 h-5/6">
+          <div className="w-10/12 rounded overflow-hidden shadow-lg">
+            <div className="flex justify-start">
+            <button
+            className="bg-slate-50 mx-5"
           onMouseDown={event => {
             event.preventDefault()
             CustomEditor.toggleBoldMark(editor)
           }}
         >
-          Bold
+        <FiBold />
         </button>
         <button
+        className="bg-slate-50 mx-5"
           onMouseDown={event => {
             event.preventDefault()
             CustomEditor.toggleUnderline(editor)
           }}
         >
-          Underline
+        <FiUnderline />
         </button>
         <button
+          className="bg-slate-50 mx-5"
           onMouseDown={event => {
             event.preventDefault()
             CustomEditor.toggleItalic(editor)
           }}
         >
-          Italic
+          <FiItalic />
         </button>
         <button
+          className="bg-slate-50 mx-5"
           onMouseDown={event => {
             event.preventDefault()
             CustomEditor.toggleCodeBlock(editor)
           }}
         >
-          Code Block
+          <FiCode />
         </button>
+            </div>
+            <div className="px-6 py-4">
+            <Slate editor={editor} value={initialValue}>
+      <div>
+      </div>
+      <div className="divide-y divide-zinc-400">
       </div>
       <Editable
+      className="h-60"
         renderElement={renderElement}
         // Pass in the `renderLeaf` function.
         renderLeaf={renderLeaf}
@@ -225,6 +238,9 @@ export default function Home() {
         }}
       />
     </Slate>
+            </div>
+          </div>
+        </div>
       </main>
     </div>
   )
