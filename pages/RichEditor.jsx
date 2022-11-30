@@ -4,7 +4,7 @@ import { createEditor, Transforms, Editor, Text } from 'slate'
 import { Slate, Editable, withReact } from 'slate-react'
 import { FiBold, FiUnderline, FiItalic, FiCode } from 'react-icons/fi'
 
-export default function Home() {
+export default function RichEditor() {
   const CustomEditor = {
     isBoldMarkActive(editor) {
       const [match] = Editor.nodes(editor, {
